@@ -1,0 +1,25 @@
+CREATE TABLE Pass
+	(UserID				int					NOT NULL,
+	 Username			VARCHAR(20)				NOT NULL,
+	 PasswordHash			VARCHAR(300)				NOT NULL,
+CONSTRAINT PasswordHash_PK PRIMARY KEY (UserID));
+
+
+CREATE TABLE Person
+	(UserID				int IDENTITY (100,1)			NOT NULL,
+	 FirstName			VARCHAR(20)				NOT NULL,
+	 LastName			VARCHAR(20)				NOT NULL,
+	 School				VARCHAR(60)				NOT NULL,
+	 Grade				VARCHAR(20)				NOT NULL,
+	 Username			VARCHAR(20)				NOT NULL,
+	 Password			VARCHAR(20)				NOT NULL,
+CONSTRAINT Person_PK PRIMARY KEY (UserID));
+
+
+SELECT * FROM Pass;
+SELECT * FROM Person;
+
+DROP TABLE Pass;
+DROP TABLE Person;
+
+
