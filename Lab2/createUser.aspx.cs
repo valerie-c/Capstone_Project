@@ -35,7 +35,7 @@ namespace Lab2
                 {                  
                     SqlCommand createUser = new SqlCommand();
                     //Get connection string from web.config file  
-                    string strcon = ConfigurationManager.ConnectionStrings["dbconnection2"].ConnectionString;
+                    string strcon = ConfigurationManager.ConnectionStrings["AUTHORIZATION"].ConnectionString;
                     //create new sqlconnection and connection to database by using connection string from web.config file  
                     SqlConnection con = new SqlConnection(strcon);
 
@@ -119,7 +119,7 @@ namespace Lab2
             
 
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, con);

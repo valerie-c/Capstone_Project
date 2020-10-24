@@ -23,7 +23,7 @@ namespace Lab2
         {
 
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             con.Open();
@@ -85,7 +85,7 @@ namespace Lab2
             sqlQuery += "ON Student.TeacherID = Teacher.TeacherID ";
 
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, con);
@@ -113,7 +113,7 @@ namespace Lab2
             SqlCommand cmd = new SqlCommand();
 
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
 
@@ -141,7 +141,7 @@ namespace Lab2
             // Check if the system has the duplicate student information a
             String sqlQuery = "select * from Student where FirstName = ' + @FirstName + ' and LastName = ' + @LastName + ' and Age = ' + Age + ' and Notes = ' + @Notes +' and LunchTicket = ' + @LunchTicket + ' ";
 
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString);
 
             SqlCommand comm = new SqlCommand(sqlQuery, con);
             comm.Parameters.Add("@FirstName", SqlDbType.NVarChar).Value = FirstName.Trim();

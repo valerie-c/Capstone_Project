@@ -26,7 +26,7 @@ namespace Lab2
         {
             String sqlQuery = "SELECT EventTitle, EventID  From Event;";
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             con.Open();
@@ -130,7 +130,7 @@ namespace Lab2
             sqlQuery += "Where Event.EventID = EventPresenter.EventID and EventPersonnel.PersonnelID = EventPresenter.PersonnelID Order By EventPersonnel.FirstName ASC";
 
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             con.Open();
@@ -149,7 +149,7 @@ namespace Lab2
             SqlCommand cmd = new SqlCommand();
 
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             con.Open();
@@ -174,7 +174,7 @@ namespace Lab2
             }
             String sqlQuery = "select EventID,PersonnelID from EventPresenter Where PersonnelID =  @PersonnelID  ";
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             con.Open();

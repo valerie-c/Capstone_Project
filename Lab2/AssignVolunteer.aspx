@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="AssignVolunteer.aspx.cs" Inherits="Lab2.AssignVolunteer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
-    Valerie Chang & Matt Suder--Assign Volunteer to Events
+    Assign Volunteer to Events
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -54,7 +54,7 @@
         </div>
         <asp:SqlDataSource runat ="server"
             ID ="datasrcUserList"
-            ConnectionString ="<%$ConnectionStrings:dbconnection %>"
+            ConnectionString ="<%$ConnectionStrings:CyberDay %>"
             SelectCommand = "Select  FirstName + ' ' + LastName as VolunteerName, PersonnelID  From EventPersonnel ; " />
          
 </asp:Content>

@@ -38,12 +38,12 @@ namespace Lab2
             HttpUtility.HtmlEncode(txtUsername.Text);
             HttpUtility.HtmlEncode(txtPassword.Text);
 
-            SqlConnection myconnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbconnection2"].ConnectionString.ToString());
+            SqlConnection myconnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTHORIZATION"].ConnectionString.ToString());
 
             SqlCommand loginCommand = new SqlCommand();
             loginCommand.Connection = myconnection;
             loginCommand.CommandType = CommandType.StoredProcedure;
-            loginCommand.CommandText = "JeremyEzellLab3";
+            loginCommand.CommandText = "Authorize";
             loginCommand.Parameters.AddWithValue("@UserName", txtUsername.Text.ToString());
             loginCommand.Parameters.AddWithValue("@PassWord", txtPassword.Text.ToString());
             myconnection.Open();
@@ -65,7 +65,7 @@ namespace Lab2
                 SqlCommand cmd = new SqlCommand();
 
                 //Get connection string from web.config file  
-                string strcon = ConfigurationManager.ConnectionStrings["dbconnection2"].ConnectionString;
+                string strcon = ConfigurationManager.ConnectionStrings["AUTHORIZATION"].ConnectionString;
                 //create new sqlconnection and connection to database by using connection string from web.config file  
                 SqlConnection con = new SqlConnection(strcon);
                 cmd.Connection = con;
