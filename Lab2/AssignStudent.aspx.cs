@@ -20,7 +20,7 @@ namespace Lab2
             // Connect with database and read the data from grid table
             String sqlQuery = "SELECT EventTitle, EventID  From Event;";
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             con.Open();
@@ -50,7 +50,7 @@ namespace Lab2
             sqlQuery += "INNER JOIN Student ON EventAttendance.StudentID = Student.StudentID Order By Student.FirstName ASC";
 
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             con.Open();
@@ -113,7 +113,7 @@ namespace Lab2
             SqlCommand cmd = new SqlCommand();
 
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             con.Open();

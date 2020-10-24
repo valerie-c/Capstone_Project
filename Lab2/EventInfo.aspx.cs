@@ -22,7 +22,7 @@ namespace Lab2
             {
                 String sqlQuery = "Select EventTitle, EventID From Event ";
                 //Get connection string from web.config file  
-                string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+                string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
                 //create new sqlconnection and connection to database by using connection string from web.config file  
                 SqlConnection con = new SqlConnection(strcon);
                 con.Open();
@@ -103,7 +103,7 @@ namespace Lab2
         {
             string sqlQuery;
 
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString);
 
             if (EventID == 0)
             {
@@ -141,7 +141,7 @@ namespace Lab2
         {
             string sqlQuery1;
             //Get connection string from web.config file  
-            string strcon1 = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon1 = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon1);
 
@@ -182,7 +182,7 @@ namespace Lab2
         {
             string sqlQuery2;
             //Get connection string from web.config file  
-            string strcon2 = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon2 = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon2);
             if (EventID == 0)

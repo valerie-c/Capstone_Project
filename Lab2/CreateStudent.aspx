@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="CreateStudent.aspx.cs" Inherits="Lab2.CreateStudent" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
-    Valerie Chang & Matt Suder--Create Student Page
+    Create Student Page
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -102,11 +102,11 @@
         <asp:SqlDataSource
             runat ="server"
             ID ="datasrcTeacherList"
-            ConnectionString ="<%$ConnectionStrings:dbconnection %>"
+            ConnectionString ="<%$ConnectionStrings:CyberDay %>"
             SelectCommand ="SELECT TeacherID, FirstName + ' ' + LastName as TeacherName FROM Teacher; " />
         <asp:SqlDataSource
             runat ="server"
             ID ="datasrcShirtList"
-            Connectionstring ="<%$ConnectionStrings:dbconnection %>"
+            Connectionstring ="<%$ConnectionStrings:CyberDay %>"
             SelectCommand ="SELECT ShirtInfoID, ShirtSize + ' ' + ShirtColor as ShirtDetails FROM ShirtInfo; " />
 </asp:Content>
