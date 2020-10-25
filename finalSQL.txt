@@ -1,0 +1,102 @@
+CREATE TABLE Event
+	(EventID		    int IDENTITY (1,1)	NOT NULL,
+	 EventTitle		    VARCHAR(20)			NOT NULL,
+	 Date			    DATE				NOT NULL,
+	 Time			    TIME				NOT NULL,
+	 Location		    VARCHAR(30)			NOT NULL,
+	 MiddleSchoolName	VARCHAR(50)			NOT NULL,
+	 MiddleSchoolNumber	VARCHAR(10)			NOT NULL,
+	 MiddleSchoolEmail	VARCHAR(50)			NOT NULL,
+	 RoomNumber         VARCHAR(50)         NOT NULL,
+	 RoomCapacity       VARCHAR(50)         NOT NULL,
+	 Description	    VARCHAR(50)			NOT NULL,
+CONSTRAINT Event_PK PRIMARY KEY (EventID));
+
+CREATE TABLE EventPersonnel
+	(PersonnelID			int	IDENTITY (1,1)	NOT NULL,
+	 FirstName				VARCHAR(10)			NOT NULL,
+	 LastName				VARCHAR(10)			NOT NULL,
+	 EmailAddress			VARCHAR(40)			NOT NULL,
+	 PhoneNumber			VARCHAR(12)			NOT NULL,
+	 Personneltype			VARCHAR(15)			NOT NULL,
+CONSTRAINT EventPersonnel_PK PRIMARY KEY (PersonnelID));
+
+CREATE TABLE Coordinator
+	(CoordinatorID	    int IDENTITY (1,1)	NOT NULL,
+	 FirstName			VARCHAR(10)			NOT NULL,
+	 LastName			VARCHAR(10)			NOT NULL,
+	 Role				VARCHAR(20)			NOT NULL,
+	 PhoneNumber	    VARCHAR(12)			NOT NULL,
+	 Email				VARCHAR(40)			NOT NULL,
+CONSTRAINT Coordinator_PK PRIMARY KEY (CoordinatorID));
+
+CREATE TABLE School
+	(SchoolID			int	IDENTITY (100,1)	NOT NULL,
+	 Name				VARCHAR(50)				NOT NULL,
+	 PhoneNumber		VARCHAR(12)				NOT NULL,
+	 PrimaryContactName	VARCHAR(20)				NOT NULL,
+	 Address1			VARCHAR(50)				NOT NULL,
+	 Address2			VARCHAR(20)				NULL,
+	 City				VARCHAR(20)				NOT NULL,
+	 State				VARCHAR(2)				NOT NULL,
+	 Zip				VARCHAR(5)				NOT NULL,
+CONSTRAINT School_PK PRIMARY KEY (SchoolID));
+
+CREATE TABLE Teacher
+	(TeacherID			int	IDENTITY (200,1)		NOT NULL,
+	 SchoolID			int					NOT NULL,
+	 FirstName			VARCHAR(10)				NOT NULL,
+	 LastName			VARCHAR(10)				NOT NULL,
+	 EmailAddress		VARCHAR(40)				NOT NULL,
+	 LunchTicket		VARCHAR(9)				NOT NULL,
+CONSTRAINT Teacher_PK PRIMARY KEY (TeacherID),
+FOREIGN KEY (SchoolID) REFERENCES School (SchoolID));
+
+CREATE TABLE Student
+	(StudentID			int	IDENTITY (300,1)		NOT NULL,
+	 FirstName			VARCHAR(10)				NOT NULL,
+	 LastName			VARCHAR(10)				NOT NULL,
+	 Age				VARCHAR(3)				NOT NULL,
+	 Notes				VARCHAR(50)				NOT NULL,
+	 LunchTicket		VARCHAR(9)				NOT NULL,
+	 TeacherID			int					    NULL,
+	 ParentAttending    VARCHAR(50)             NOT NULL,
+	 ParentEmail		VARCHAR(50)				NOT NULL,
+CONSTRAINT Student_PK   PRIMARY KEY (StudentID),
+FOREIGN KEY (TeacherID) REFERENCES Teacher (TeacherID));
+
+CREATE TABLE EventPresenter
+	(EventPresenterID	int	IDENTITY (1,1)			NOT NULL,
+	 EventID			int					NOT NULL,
+	 PersonnelID		int					NULL,
+	 CoordinatorID		int					NULL,
+	 StudentID			int					NULL,
+CONSTRAINT EventPresenter_PK PRIMARY KEY (EventPresenterID),
+FOREIGN KEY (EventID) REFERENCES Event(EventID),
+FOREIGN KEY (PersonnelID) REFERENCES EventPersonnel (PersonnelID),
+FOREIGN KEY (CoordinatorID) REFERENCES Coordinator(CoordinatorID),
+FOREIGN KEY (StudentID) REFERENCES Student(StudentID));
+
+CREATE TABLE EventAttendance
+	(EventAttendanceID		int	IDENTITY (1,1)			NOT NULL,
+	 EventID				int					NOT NULL,
+	 StudentID				int					NOT NULL,
+CONSTRAINT EventAttendance_PK PRIMARY KEY (EventAttendanceID),
+FOREIGN KEY (EventID)	REFERENCES Event(EventID),
+FOREIGN KEY (StudentID) REFERENCES Student (StudentID));
+
+CREATE TABLE SimpleCredentials
+	(CredentialID		int IDENTITY (1,1)			NOT NULL,
+	 Username			VARCHAR(20)				NOT NULL,
+	 Password			VARCHAR(30)				NOT NULL,
+CONSTRAINT SimpleCredentials_PK PRIMARY KEY (CredentialID));
+
+CREATE TABLE UserAccount
+	(PersonID			int IDENTITY (200,1)			NOT NULL,
+	 FirstName			VARCHAR(20)				NOT NULL,
+	 LastName			VARCHAR(20)				NOT NULL,
+	 Role				VARCHAR(20)				NOT NULL,
+	 Gender				VARCHAR(20)				NOT NULL,
+	 Username			VARCHAR(20)				NOT NULL,
+	 Password			VARCHAR(20)				NOT NULL,
+CONSTRAINT UserAccount_PK PRIMARY KEY (PersonID));
