@@ -89,6 +89,7 @@
     <Content Include="AssignCoordinator.aspx" />
     <Content Include="AssignStudent.aspx" />
     <Content Include="AssignVolunteer.aspx" />
+    <Content Include="createEvent.aspx" />
     <Content Include="CreateStudent.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="Login.aspx" />
@@ -125,6 +126,13 @@
     </Compile>
     <Compile Include="AssignVolunteer.aspx.designer.cs">
       <DependentUpon>AssignVolunteer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="createEvent.aspx.cs">
+      <DependentUpon>createEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="createEvent.aspx.designer.cs">
+      <DependentUpon>createEvent.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateStudent.aspx.cs">
       <DependentUpon>CreateStudent.aspx</DependentUpon>
