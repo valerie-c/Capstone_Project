@@ -101,3 +101,53 @@ CREATE TABLE UserAccount
 	 Password			VARCHAR(20)				NOT NULL,
 CONSTRAINT UserAccount_PK PRIMARY KEY (PersonID));
 
+
+INSERT UserAccount VALUES ('Robert', 'Davis', 'Volunteer','Male', 'rdavis', 'pass');
+INSERT UserAccount VALUES ('Patrick', 'Martin', 'Coordinator','Male', 'pmartin', 'pass');
+INSERT UserAccount VALUES ('Lexi', 'Rodriguez', 'Volunteer','Female', 'lrodri', 'pass');
+INSERT UserAccount VALUES ('Veronica', 'Martinez', 'Volunteer','Female', 'vmartinez', 'pass');
+INSERT UserAccount VALUES ('Justin', 'Miller', 'Coordinator','Male', 'jmiller', 'pass');
+
+INSERT INTO Event VALUES ( 'Networking Events', '08/20/2020', '10:30:00 ', 'Showker Room 104','Skyline','258-525-8976','skylinemiddle@gmail.com','1001','50','Meet people');
+INSERT INTO Event VALUES ( 'Trade Shows', '08/20/2020', '13:00:00', 'Showker Room 105','Skyline','258-525-8976','skylinemiddle@gmail.com','1002','50','...');
+INSERT INTO Event VALUES ( 'Product Launches', '08/19/2020', '9:30:00', 'COB Building Room 201','Skyline','258-525-8976','skylinemiddle@gmail.com','1011','50','...');
+INSERT INTO Event VALUES ( 'Annual Lunch', '08/19/2020', '11:30:00', 'E-Hall Top Floor','Skyline','258-525-8976','skylinemiddle@gmail.com','1021','50','....');
+
+
+INSERT INTO EventPersonnel VALUES ( 'Mary', 'Jackson', 'jacksonm@gmail.com', '584-825-0024', 'Photographer');
+INSERT INTO EventPersonnel VALUES ( 'Jane', 'Peterson', 'petersonj@gmail.com', '243-328-9538', 'Registration');
+INSERT INTO EventPersonnel VALUES ( 'George', 'Rockwell', 'rockwellg@gmail.com', '827-558-4818', 'Usher');
+INSERT INTO EventPersonnel VALUES ( 'Henry', 'Lee', 'leeh@gmail.com', '517-258-9653', 'Stage Hand');
+
+INSERT INTO Coordinator VALUES ('Abby', 'Johnson','Organizor', '540-246-9626', 'johnsona@gmail.com');
+INSERT INTO Coordinator VALUES ('Sandy', ' Garcia', 'Moderator', '572-598-3256', 'gracias@gmail.com');
+INSERT INTO Coordinator VALUES ('Jacob', 'Smith', 'Presenter', '526-598-2550', 'smithj@gmail.com');
+INSERT INTO Coordinator VALUES ('Max', 'Davis', 'Presenter', '252-269-7741', 'davism@gmail.com');
+
+INSERT INTO School VALUES ( 'Sterling Middle School', '258-525-8976', 'Zach Thomas', '122 Arrow Dr', NULL, 'Sterling', 'VA', '20163');
+INSERT INTO School VALUES ( 'Brooklyn Middle School', '917-865-2120', 'Peter Sados', '818 Heart St', NULL, 'New York', 'NY','11220');
+INSERT INTO School VALUES ( 'Fairfax Middle School', '897-595-2163', 'Sally Darling', '952 Jane Ct', NULL, 'Fairfax', 'VA', '20189');
+INSERT INTO School VALUES ( 'Halifax Middle Scool', '540-250-5686', 'Skylar Wright', '292 Middle St', NULL, 'Charlottesville', 'VA', '20172');
+
+INSERT INTO Teacher VALUES ( '100', 'Hailey', 'Hartnett','hartnetth@gmail.com', 'Yes');
+INSERT INTO Teacher VALUES ( '101', 'John', 'Evans','evansj@gmail.com', 'Yes');
+INSERT INTO Teacher VALUES ( '102', 'Amy','Harrison','harrisona@gmail.com', 'Yes');
+INSERT INTO Teacher VALUES ( '103', 'Leanne', 'Moore', 'moorel@gmail.com', 'Yes');
+
+INSERT INTO Student VALUES ('Andrew', 'Anderson', '14', '8th grader', 'Yes', '200','Yes','parent@gmail.com');
+INSERT INTO Student VALUES ('Peter', 'Sardos','12', '6th grader', 'Yes','201','Yes','parent@gmail.com');
+INSERT INTO Student VALUES ('Kaleigh', 'Moore','13', '7th grader', 'Yes','202','Yes','parent@gmail.com');
+INSERT INTO Student VALUES ('Amber', 'Llana','13', '7th grader', 'Yes','203','Yes','parent@gmail.com');
+
+INSERT INTO EventPresenter VALUES ( '001', '0001', '1','300');
+INSERT INTO EventPresenter VALUES ( '002', '0002', '2','301');
+INSERT INTO EventPresenter VALUES ( '003', '0003', '3','302');
+INSERT INTO EventPresenter VALUES ( '004', '0004', '4','303');
+
+INSERT INTO EventAttendance VALUES ( '1', '302');
+INSERT INTO EventAttendance VALUES ( '2', '301');
+INSERT INTO EventAttendance VALUES ( '3', '300');
+
+INSERT INTO SimpleCredentials VALUES ('dukedog', 'pass');
+INSERT INTO SimpleCredentials VALUES ('testuser', 'pass');
+
