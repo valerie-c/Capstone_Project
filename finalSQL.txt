@@ -1,11 +1,11 @@
 CREATE TABLE Event
 	(EventID		    int IDENTITY (1,1)	NOT NULL,
-	 EventTitle		    VARCHAR(20)			NOT NULL,
+	 EventTitle		    VARCHAR(50)			NOT NULL,
 	 Date			    DATE				NOT NULL,
 	 Time			    TIME				NOT NULL,
-	 Location		    VARCHAR(30)			NOT NULL,
+	 Location		    VARCHAR(50)			NOT NULL,
 	 MiddleSchoolName	VARCHAR(50)			NOT NULL,
-	 MiddleSchoolNumber	VARCHAR(10)			NOT NULL,
+	 MiddleSchoolNumber	VARCHAR(50)			NOT NULL,
 	 MiddleSchoolEmail	VARCHAR(50)			NOT NULL,
 	 RoomNumber         VARCHAR(50)         NOT NULL,
 	 RoomCapacity       VARCHAR(50)         NOT NULL,
@@ -14,26 +14,26 @@ CONSTRAINT Event_PK PRIMARY KEY (EventID));
 
 CREATE TABLE EventPersonnel
 	(PersonnelID			int	IDENTITY (1,1)	NOT NULL,
-	 FirstName				VARCHAR(10)			NOT NULL,
-	 LastName				VARCHAR(10)			NOT NULL,
+	 FirstName				VARCHAR(50)			NOT NULL,
+	 LastName				VARCHAR(50)			NOT NULL,
 	 EmailAddress			VARCHAR(40)			NOT NULL,
-	 PhoneNumber			VARCHAR(12)			NOT NULL,
-	 Personneltype			VARCHAR(15)			NOT NULL,
+	 PhoneNumber			VARCHAR(50)			NOT NULL,
+	 Personneltype			VARCHAR(50)			NOT NULL,
 CONSTRAINT EventPersonnel_PK PRIMARY KEY (PersonnelID));
 
 CREATE TABLE Coordinator
 	(CoordinatorID	    int IDENTITY (1,1)	NOT NULL,
-	 FirstName			VARCHAR(10)			NOT NULL,
-	 LastName			VARCHAR(10)			NOT NULL,
+	 FirstName			VARCHAR(25)			NOT NULL,
+	 LastName			VARCHAR(25)			NOT NULL,
 	 Role				VARCHAR(20)			NOT NULL,
-	 PhoneNumber	    VARCHAR(12)			NOT NULL,
+	 PhoneNumber	    VARCHAR(20)			NOT NULL,
 	 Email				VARCHAR(40)			NOT NULL,
 CONSTRAINT Coordinator_PK PRIMARY KEY (CoordinatorID));
 
 CREATE TABLE School
 	(SchoolID			int	IDENTITY (100,1)	NOT NULL,
 	 Name				VARCHAR(50)				NOT NULL,
-	 PhoneNumber		VARCHAR(12)				NOT NULL,
+	 PhoneNumber		VARCHAR(20)				NOT NULL,
 	 PrimaryContactName	VARCHAR(20)				NOT NULL,
 	 Address1			VARCHAR(50)				NOT NULL,
 	 Address2			VARCHAR(20)				NULL,
@@ -45,17 +45,17 @@ CONSTRAINT School_PK PRIMARY KEY (SchoolID));
 CREATE TABLE Teacher
 	(TeacherID			int	IDENTITY (200,1)		NOT NULL,
 	 SchoolID			int					NOT NULL,
-	 FirstName			VARCHAR(10)				NOT NULL,
-	 LastName			VARCHAR(10)				NOT NULL,
+	 FirstName			VARCHAR(20)				NOT NULL,
+	 LastName			VARCHAR(20)				NOT NULL,
 	 EmailAddress		VARCHAR(40)				NOT NULL,
-	 LunchTicket		VARCHAR(9)				NOT NULL,
+	 LunchTicket		VARCHAR(10)				NOT NULL,
 CONSTRAINT Teacher_PK PRIMARY KEY (TeacherID),
 FOREIGN KEY (SchoolID) REFERENCES School (SchoolID));
 
 CREATE TABLE Student
 	(StudentID			int	IDENTITY (300,1)		NOT NULL,
-	 FirstName			VARCHAR(10)				NOT NULL,
-	 LastName			VARCHAR(10)				NOT NULL,
+	 FirstName			VARCHAR(15)				NOT NULL,
+	 LastName			VARCHAR(15)				NOT NULL,
 	 Age				VARCHAR(3)				NOT NULL,
 	 Notes				VARCHAR(50)				NOT NULL,
 	 LunchTicket		VARCHAR(9)				NOT NULL,
@@ -100,3 +100,4 @@ CREATE TABLE UserAccount
 	 Username			VARCHAR(20)				NOT NULL,
 	 Password			VARCHAR(20)				NOT NULL,
 CONSTRAINT UserAccount_PK PRIMARY KEY (PersonID));
+
