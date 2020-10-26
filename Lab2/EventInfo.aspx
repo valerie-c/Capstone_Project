@@ -29,7 +29,7 @@
                     AutoGenerateEditButton="true"
                     AllowSorting="true"
                     AllowPaging="true"
-                    EmptyDataText ="No Events Selected!" Height="229px" Width="310px">
+                    EmptyDataText ="No Coordinators Selected!" Height="229px" Width="310px">
                     
                     <Columns>
                         <asp:BoundField ReadOnly="true"
@@ -67,7 +67,7 @@
                     AutoGenerateEditButton="true"
                     AllowSorting="true"
                     AllowPaging="true"
-                    EmptyDataText ="No Events Selected!" Height="229px" Width="310px">
+                    EmptyDataText ="No Volunteers Selected!" Height="229px" Width="310px">
                 
                     <Columns>
                         <asp:BoundField ReadOnly="true"
@@ -99,7 +99,7 @@
                     AutoGenerateEditButton="true"
                     AllowSorting="true"
                     AllowPaging="true"
-                    EmptyDataText ="No Events Selected!" Height="229px" Width="310px">
+                    EmptyDataText ="No Students Selected!" Height="229px" Width="310px">
                 
                     <Columns>
                         <asp:BoundField ReadOnly="true"
@@ -122,6 +122,18 @@
                        </Columns>
                 </asp:GridView>
             </div>                
+            <br />
+            <br />
+            <asp:GridView ID="GridView4" runat="server" Height="229px" Width="310px">
+                <Columns>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Click to View</asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
             </div>
 
 <%--           <asp:SqlDataSource  

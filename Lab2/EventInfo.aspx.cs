@@ -9,7 +9,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Configuration;
-
+using System.Net;
 
 namespace Lab2
 {
@@ -216,6 +216,16 @@ namespace Lab2
             con.Close();
 
             return dtTable2;
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
