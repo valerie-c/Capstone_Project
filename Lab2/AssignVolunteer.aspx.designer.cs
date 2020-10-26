@@ -24,40 +24,13 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.DropDownList ddlVolunteerList;
 
         /// <summary>
-        /// Cb1 control.
+        /// ddlEventList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Cb1;
-
-        /// <summary>
-        /// Cb2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Cb2;
-
-        /// <summary>
-        /// Cb3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Cb3;
-
-        /// <summary>
-        /// Cb4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Cb4;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEventList;
 
         /// <summary>
         /// btnAssignVolunteers control.
@@ -94,5 +67,14 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource datasrcUserList;
+
+        /// <summary>
+        /// dtasrcEventList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcEventList;
     }
 }

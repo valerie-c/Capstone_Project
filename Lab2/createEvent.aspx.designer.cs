@@ -213,6 +213,7 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
 
         /// <summary>
+
         /// lblUpload control.
         /// </summary>
         /// <remarks>
@@ -249,6 +250,7 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
+
         /// btnCommit control.
         /// </summary>
         /// <remarks>

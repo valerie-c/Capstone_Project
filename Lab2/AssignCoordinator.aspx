@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="AssignCoordinator.aspx.cs" Inherits="Lab2.AssignCoordinator" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
-    Valerie Chang & Matt Suder--Assign Coordinators to Events
+   Assign Coordinators to Events
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -15,22 +15,14 @@
                     DataTextField ="CoordinatorName"
                     DataValueField ="CoordinatorID"
                     AutoPostBack ="true" Height="27px" ></asp:DropDownList>
-                <asp:CheckBox 
-                    ID="Cb1" 
-                    runat="server" 
-                    Text ="EventTitle"/>
-                <asp:CheckBox 
-                    ID="Cb2" 
-                    runat="server" 
-                    Text ="EventTitle"/>
-                <asp:CheckBox 
-                    ID="Cb3" 
-                    runat="server" 
-                    Text ="EventTitle"/>
-                <asp:CheckBox 
-                    ID="Cb4" 
-                    runat="server" 
-                    Text ="EventTitle"/>
+               
+                <asp:DropDownList ID="ddlEventList" 
+                    runat="server"
+                    DataSourceID="dtasrcEventList"
+                    DataTextField="EventTitle"
+                    DataValueField = "EventID"
+                    AutoPostBack ="true"></asp:DropDownList>   
+
                 <asp:Button 
                     ID="btnAssignCoordinators" 
                     runat="server" 
@@ -55,6 +47,11 @@
         </div>
         <asp:SqlDataSource runat ="server"
             ID ="datasrcUserList"
-            ConnectionString ="<%$ConnectionStrings:dbconnection %>"
+            ConnectionString ="<%$ConnectionStrings:CyberDay %>"
             SelectCommand = "Select  FirstName + ' ' + LastName as CoordinatorName, CoordinatorID  From Coordinator ; " />
+
+     <asp:SqlDataSource runat ="server"
+            ID ="dtasrcEventList"
+            ConnectionString ="<%$ConnectionStrings:CyberDay %>"
+            SelectCommand = "Select EventID, EventTitle From Event; " />
 </asp:Content>

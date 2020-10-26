@@ -17,13 +17,13 @@
             <div class ="menu">
                 <ul>
                     <li class="navigation_first_item"><a href ="HomePage.aspx">HomePage</a></li>
+                    <li><a href ="createEvent.aspx">Create Event</a></li>
                     <li><a href ="CreateStudent.aspx">Create Student</a></li>
                     <li><a href ="AssignStudent.aspx">Student & Event</a></li>
                     <li><a href ="AssignVolunteer.aspx">Volunteer & Event</a></li>
                     <li><a href ="AssignCoordinator.aspx">Coordinator & Event</a></li>
                     <li><a href ="EventInfo.aspx">Event Details</a></li>
                     <li><a href ="PersonInfo.aspx">Personnel Details</a></li>
-                    <li><a href ="Search.aspx">Search Page</a></li>
                     <li><a href ="LogOut.aspx">Log out</a></li>
                     <li id="hh" runat="server"></li>
                 </ul>
@@ -35,8 +35,9 @@
         </div>
         <div class ="clear"></div>
         <div class ="footer">
-            <h4>Created By Valerie Chang</h4>
         </div>
+
+           
     </div>
     </form>
 </body>

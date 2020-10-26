@@ -22,7 +22,7 @@ namespace Lab2
             {
                 String sqlQuery = "Select Coordinator.FirstName + ' ' + Coordinator.LastName as CoordinatorName, CoordinatorID From Coordinator ";
                 //Get connection string from web.config file  
-                string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+                string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
                 //create new sqlconnection and connection to database by using connection string from web.config file  
                 SqlConnection con = new SqlConnection(strcon);
                 con.Open();
@@ -95,7 +95,7 @@ namespace Lab2
             }
             
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             con.Open();
@@ -129,7 +129,7 @@ namespace Lab2
         {
             string sqlQuery;
 
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString);
 
             if (PersonnelID == 0)
 

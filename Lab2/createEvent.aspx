@@ -40,6 +40,7 @@
                     <asp:TableCell>
                         <asp:TextBox ID="txtTime" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txtTime" Display ="Dynamic" ForeColor ="Red" SetFocusOnError="true" Text="* This is a required field" ErrorMessage ="* Field cannot be blank!" ></asp:RequiredFieldValidator>
+
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
@@ -105,6 +106,7 @@
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDescription" Display ="Dynamic" ForeColor ="Red" SetFocusOnError="true" Text="* This is a required field" ErrorMessage ="* Field cannot be blank!"></asp:RequiredFieldValidator>
                     </asp:TableCell>
                 </asp:TableRow>
+
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblUpload" runat="server" Text="Select File: "></asp:Label>
@@ -121,6 +123,7 @@
                         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                     </asp:TableCell>
                 </asp:TableRow>
+
              </asp:Table> 
         </div>
 

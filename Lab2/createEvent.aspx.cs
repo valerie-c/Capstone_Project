@@ -39,8 +39,8 @@ namespace Lab2
 
             string EventTitle = HttpUtility.HtmlEncode(txtTitle.Text);
             string Date = HttpUtility.HtmlEncode(txtDate.Text); 
+
             DateTime Time = Convert.ToDateTime(txtTime.Text);
-            Time.ToString("HH:mm:ss");
             string Location = HttpUtility.HtmlEncode(txtLocation.Text);
             string MiddleSchoolName = HttpUtility.HtmlEncode(txtSchoolName.Text);
             string MiddleSchoolNumber = HttpUtility.HtmlEncode(txtSchoolNumber.Text);
@@ -50,9 +50,7 @@ namespace Lab2
             string Description = HttpUtility.HtmlEncode(txtDescription.Text);
 
             //int TeacherID = Convert.ToInt32(DropDownList1.SelectedValue);
-            //int ShirtInfoID = Convert.ToInt32(DropDownList2.SelectedValue);
 
-            //new Student(0, FirstName, LastName, Age, Notes, LunchTicket, TeacherID, ShirtInfoID);
 
             // Make sure none of the textboxes are blank before commit to the database
             if ((!string.IsNullOrEmpty(txtTitle.Text)) && (!string.IsNullOrEmpty(txtDate.Text)) && (!string.IsNullOrEmpty(txtTime.Text)) && (!string.IsNullOrEmpty(txtLocation.Text)) 
@@ -114,6 +112,8 @@ namespace Lab2
         }
 
         private void Insert_Event(string EventTitle, string Date, DateTime Time,string Location, string MiddleSchoolName, string MiddleSchoolNumber, string MiddleSchoolEmail, string RoomNumber, string RoomCapacity, string Description)
+
+
         {
             // Read the data from the database
             SqlCommand cmd = new SqlCommand();
@@ -133,6 +133,7 @@ namespace Lab2
             cmd.Parameters.Add("@EventTitle", SqlDbType.NVarChar).Value = EventTitle;
             cmd.Parameters.Add("@Date", SqlDbType.NVarChar).Value = Date;
             cmd.Parameters.Add("@Time", SqlDbType.DateTime).Value = Time;
+
             cmd.Parameters.Add("@Location", SqlDbType.NVarChar).Value = Location;
             cmd.Parameters.Add("@MiddleSchoolName", SqlDbType.NVarChar).Value = MiddleSchoolName;
             cmd.Parameters.Add("@MiddleSchoolNumber", SqlDbType.NVarChar).Value = MiddleSchoolNumber;
@@ -151,6 +152,7 @@ namespace Lab2
             // Check if the system has the duplicate student information a
             String sqlQuery = "SELECT * FROM Event WHERE EventTitle = @EventTitle and Location = @Location " +
                 "and MiddleSchoolName = @MiddleSchoolName and RoomNumber = @RoomNumber ";
+
 
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString);
 
@@ -185,5 +187,6 @@ namespace Lab2
                 FileLocation = pathstring,
             };
         }
+
     }
 }

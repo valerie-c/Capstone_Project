@@ -19,7 +19,7 @@ namespace Lab2
             // Connect with database and read the data from grid table
             String sqlQuery = "SELECT EventTitle, EventID From Event;";
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             con.Open();
@@ -27,107 +27,63 @@ namespace Lab2
             DataTable dtForGridTable = new DataTable();
             sqlAdapter.Fill(dtForGridTable);
 
-            Cb1.Text = dtForGridTable.Rows[0][0].ToString();
-            Cb1.ID = dtForGridTable.Rows[0][1].ToString();
-
-            Cb2.Text = dtForGridTable.Rows[1][0].ToString();
-            Cb2.ID = dtForGridTable.Rows[1][1].ToString();
-
-            Cb3.Text = dtForGridTable.Rows[2][0].ToString();
-            Cb3.ID = dtForGridTable.Rows[2][1].ToString();
-
-            Cb4.Text = dtForGridTable.Rows[3][0].ToString();
-            Cb4.ID = dtForGridTable.Rows[3][1].ToString();
+            
         }
 
         protected void btnAssignCoordinators_Click(object sender, EventArgs e)
         {
-            if (Cb1.Checked == false && Cb2.Checked == false && Cb3.Checked == false && Cb4.Checked == false)
+
+            if (ddlEventList.SelectedValue == "1")
             {
-                // show messagebox when user did not select event
-                //System.Windows.MessageBox.Show("Please select an event!");
-                Response.Write("<script>alert('Please select an event!');</script>");
-
-                return;
+                Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlCoordinatorList.SelectedValue));
             }
-            try
+            if (ddlEventList.SelectedValue == "2")
             {
-                String sqlQuery = "select EventID from EventPresenter where CoordinatorID = " + ddlCoordinatorList.SelectedValue;
-
-                string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
-
-                SqlConnection con = new SqlConnection(strcon);
-                con.Open();
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, con);
-                DataTable DT = new DataTable();
-                sqlAdapter.Fill(DT);
-
-                if (Cb1.Checked == true)
-                {
-                    for (int i = 0; i < DT.Rows.Count; i++)
-                    {
-                        if (Convert.ToInt32(Cb1.ID) == (int)DT.Rows[i][0])
-                        {
-                            Response.Write("<script>alert('The event has already chose for the coordinator! Please select another one!');</script>");
-                            return;
-                        }
-                    }
-                    Dome(Convert.ToInt32(Cb1.ID), Convert.ToInt32(ddlCoordinatorList.SelectedValue));
-                }
-
-                if (Cb2.Checked == true)
-                {
-                    for (int i = 0; i < DT.Rows.Count; i++)
-                    {
-                        if (Convert.ToInt32(Cb2.ID) == (int)DT.Rows[i][0])
-                        {
-                            Response.Write("<script>alert('The event has already chose for the coordinator! Please select another one!');</script>");
-                            return;
-                        }
-                    }
-
-                    Dome(Convert.ToInt32(Cb2.ID), Convert.ToInt32(ddlCoordinatorList.SelectedValue));
-                }
-
-                if (Cb3.Checked == true)
-                {
-                    for (int i = 0; i < DT.Rows.Count; i++)
-                    {
-                        if (Convert.ToInt32(Cb3.ID) == (int)DT.Rows[i][0])
-                        {
-                            Response.Write("<script>alert('The event has already chose for the coordinator! Please select another one!');</script>");
-                            return;
-                        }
-                    }
-
-                    Dome(Convert.ToInt32(Cb3.ID), Convert.ToInt32(ddlCoordinatorList.SelectedValue));
-                }
-
-                if (Cb4.Checked == true)
-                {
-                    for (int i = 0; i < DT.Rows.Count; i++)
-                    {
-                        if (Convert.ToInt32(Cb4.ID) == (int)DT.Rows[i][0])
-                        {
-                            Response.Write("<script>alert('The event has already chose for the coordinator! Please select another one!');</script>");
-                            return;
-                        }
-                    }
-
-                    Dome(Convert.ToInt32(Cb4.ID), Convert.ToInt32(ddlCoordinatorList.SelectedValue));
-                }
-
-                //System.Windows.MessageBox.Show("OK! Coordinator assigned to the Events successfully!");
-                Response.Write("<script>alert('OK! Coordinator assigned to the Events successfully!');</script>");
-
-
+                Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlCoordinatorList.SelectedValue));
             }
-            catch (Exception ex)
+            if (ddlEventList.SelectedValue == "3")
             {
-                //System.Windows.MessageBox.Show("Error! Try again!");
-                Response.Write("<script>alert('Error! Try again!');</script>");
-
+                Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlCoordinatorList.SelectedValue));
             }
+            if (ddlEventList.SelectedValue == "4")
+            {
+                Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlCoordinatorList.SelectedValue));
+            }
+            if (ddlEventList.SelectedValue == "5")
+            {
+                Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlCoordinatorList.SelectedValue));
+            }
+            if (ddlEventList.SelectedValue == "6")
+            {
+                Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlCoordinatorList.SelectedValue));
+            }
+            if (ddlEventList.SelectedValue == "7")
+            {
+                Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlCoordinatorList.SelectedValue));
+            }
+            if (ddlEventList.SelectedValue == "8")
+            {
+                Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlCoordinatorList.SelectedValue));
+            }
+            if (ddlEventList.SelectedValue == "9")
+            {
+                Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlCoordinatorList.SelectedValue));
+            }
+            if (ddlEventList.SelectedValue == "10")
+            {
+                Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlCoordinatorList.SelectedValue));
+            }
+
+
+
+
+
+            //System.Windows.MessageBox.Show("OK! Coordinator assigned to the Events successfully!");
+            Response.Write("<script>alert('OK! Coordinator assigned to the Events successfully!');</script>");
+
+
+            
+          
         }
 
         protected void btnPopulate_Click(object sender, EventArgs e)
@@ -140,7 +96,7 @@ namespace Lab2
 
 
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             con.Open();
@@ -157,7 +113,7 @@ namespace Lab2
             SqlCommand cmd = new SqlCommand();
 
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             con.Open();
