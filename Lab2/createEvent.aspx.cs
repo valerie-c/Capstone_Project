@@ -128,8 +128,7 @@ namespace Lab2
                 "values (@EventTitle,@Date,@Time,@Location,@MiddleSchoolName,@MiddleSchoolNumber,@MiddleSchoolEmail,@RoomNumber,@RoomCapacity,@Description)";
 
             cmd.Parameters.Add("@EventTitle", SqlDbType.NVarChar).Value = EventTitle;
-            cmd.Parameters.Add("@Date", SqlDbType.NVarChar).Value = Date;
-            cmd.Parameters.Add("@Time", SqlDbType.NVarChar).Value = Time;
+
             cmd.Parameters.Add("@Location", SqlDbType.NVarChar).Value = Location;
             cmd.Parameters.Add("@MiddleSchoolName", SqlDbType.NVarChar).Value = MiddleSchoolName;
             cmd.Parameters.Add("@MiddleSchoolNumber", SqlDbType.NVarChar).Value = MiddleSchoolNumber;
