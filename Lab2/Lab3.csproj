@@ -89,14 +89,13 @@
     <Content Include="AssignCoordinator.aspx" />
     <Content Include="AssignStudent.aspx" />
     <Content Include="AssignVolunteer.aspx" />
-    <Content Include="createEvent.aspx" />
     <Content Include="CreateStudent.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="PersonInfo.aspx" />
     <Content Include="EventInfo.aspx" />
     <Content Include="createUser.aspx" />
-    <Content Include="WebForm2.aspx" />
+    <Content Include="CoordinatorReport.aspx" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="LogOut.aspx" />
     <Content Include="Scripts\jquery-3.5.1.js" />
@@ -127,13 +126,6 @@
     </Compile>
     <Compile Include="AssignVolunteer.aspx.designer.cs">
       <DependentUpon>AssignVolunteer.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="createEvent.aspx.cs">
-      <DependentUpon>createEvent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="createEvent.aspx.designer.cs">
-      <DependentUpon>createEvent.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateStudent.aspx.cs">
       <DependentUpon>CreateStudent.aspx</DependentUpon>
@@ -193,12 +185,12 @@
     <Compile Include="createUser.aspx.designer.cs">
       <DependentUpon>createUser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="CoordinatorReport.aspx.cs">
+      <DependentUpon>CoordinatorReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="CoordinatorReport.aspx.designer.cs">
+      <DependentUpon>CoordinatorReport.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
