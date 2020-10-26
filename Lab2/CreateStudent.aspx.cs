@@ -23,7 +23,7 @@ namespace Lab2
         {
 
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             con.Open();
@@ -46,9 +46,14 @@ namespace Lab2
             string Notes = HttpUtility.HtmlEncode(txtNotes.Text);
             string LunchTicket = HttpUtility.HtmlEncode(txtLunchTicket.Text);
             int TeacherID = Convert.ToInt32(DropDownList1.SelectedValue);
-            int ShirtInfoID = Convert.ToInt32(DropDownList2.SelectedValue);
+            string ParentEmail = HttpUtility.HtmlEncode(txtparentEmail.Text);
+            string ParentAttending = "";
+            bool isChecked = rbtnYes.Checked;
+            if (isChecked)
+                ParentAttending = "Yes";
+            else
+                ParentAttending = "No";
 
-            //new Student(0, FirstName, LastName, Age, Notes, LunchTicket, TeacherID, ShirtInfoID);
 
             // Make sure none of the textboxes are blank before commit to the database
             if ((!string.IsNullOrEmpty(txtStudentFN.Text)) && (!string.IsNullOrEmpty(txtStudentLN.Text))
@@ -57,7 +62,7 @@ namespace Lab2
                 try
                 {
                     // Retrieve the data and display a messagebox shows added successfully
-                    Insetr_Student(FirstName, LastName, Age, Notes, LunchTicket, TeacherID, ShirtInfoID);
+                    Insetr_Student(FirstName, LastName, Age, Notes, LunchTicket, TeacherID, ParentAttending, ParentEmail);
                     //System.Windows.MessageBox.Show("OK! Added Student Successfully!");
                     Response.Write("<script>alert('OK! Added Student Successfully!');</script>");
 
@@ -80,12 +85,12 @@ namespace Lab2
         protected void btnDisplay_Click(object sender, EventArgs e)
         {
             // Outer Join SQL Query
-            String sqlQuery = "SELECT Student.FirstName + ' ' + Student.LastName AS StudentName, Teacher.FirstName+ ' ' + Teacher.LastName as TeacherName, Student.Age, Student.Notes, Student.LunchTicket ";
+            String sqlQuery = "SELECT Student.FirstName + ' ' + Student.LastName AS StudentName, Teacher.FirstName+ ' ' + Teacher.LastName as TeacherName, Student.Age, Student.Notes, Student.LunchTicket, Student.ParentAttending, Student.ParentEmail ";
             sqlQuery += "FROM Student FULL OUTER JOIN Teacher ";
             sqlQuery += "ON Student.TeacherID = Teacher.TeacherID ";
 
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, con);
@@ -105,15 +110,16 @@ namespace Lab2
             txtAge.Text = "";
             txtNotes.Text = "";
             txtLunchTicket.Text = "";
+            txtparentEmail.Text = "";
         }
 
-        private void Insetr_Student(string FirstName, string LastName, string Age, string Notes, string LunchTicket, int TeacherID, int ShirtInfoID)
+        private void Insetr_Student(string FirstName, string LastName, string Age, string Notes, string LunchTicket, int TeacherID, string ParentAttending, string ParentEmail)
         {
             // Read the data from the database
             SqlCommand cmd = new SqlCommand();
 
             //Get connection string from web.config file  
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            string strcon = ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
 
@@ -121,7 +127,7 @@ namespace Lab2
 
             cmd.Connection = con;
 
-            cmd.CommandText = "insert into Student (FirstName,LastName,Age,Notes,LunchTicket,TeacherID, ShirtInfoID) values (@FirstName,@LastName,@Age,@Notes,@LunchTicket,@TeacherID,@ShirtInfoID)";
+            cmd.CommandText = "insert into Student (FirstName,LastName,Age,Notes,LunchTicket,TeacherID,ParentAttending, ParentEmail) values (@FirstName,@LastName,@Age,@Notes,@LunchTicket,@TeacherID,@ParentAttending,@ParentEmail)";
 
             cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar).Value = FirstName;
             cmd.Parameters.Add("@LastName", SqlDbType.NVarChar).Value = LastName;
@@ -129,7 +135,8 @@ namespace Lab2
             cmd.Parameters.Add("@Notes", SqlDbType.NVarChar).Value = Notes;
             cmd.Parameters.Add("@LunchTicket", SqlDbType.NVarChar).Value = LunchTicket;
             cmd.Parameters.Add("@TeacherID", SqlDbType.Int).Value = TeacherID;
-            cmd.Parameters.Add("@ShirtInfoID", SqlDbType.Int).Value = ShirtInfoID;
+            cmd.Parameters.Add("@ParentAttending", SqlDbType.NVarChar).Value = ParentAttending;
+            cmd.Parameters.Add("@ParentEmail", SqlDbType.NVarChar).Value = ParentEmail;
 
             SqlDataReader sqlDataReader = cmd.ExecuteReader();
 
@@ -141,7 +148,7 @@ namespace Lab2
             // Check if the system has the duplicate student information a
             String sqlQuery = "select * from Student where FirstName = ' + @FirstName + ' and LastName = ' + @LastName + ' and Age = ' + Age + ' and Notes = ' + @Notes +' and LunchTicket = ' + @LunchTicket + ' ";
 
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString);
 
             SqlCommand comm = new SqlCommand(sqlQuery, con);
             comm.Parameters.Add("@FirstName", SqlDbType.NVarChar).Value = FirstName.Trim();
@@ -164,6 +171,9 @@ namespace Lab2
                 return false;
         }
 
+        protected void rbtnYes_CheckedChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

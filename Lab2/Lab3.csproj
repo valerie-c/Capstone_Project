@@ -95,13 +95,13 @@
     <Content Include="PersonInfo.aspx" />
     <Content Include="EventInfo.aspx" />
     <Content Include="createUser.aspx" />
+    <Content Include="CoordinatorReport.aspx" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="LogOut.aspx" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
     <Content Include="Scripts\jquery-3.5.1.slim.js" />
     <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
-    <Content Include="Search.aspx" />
     <Content Include="Styles\main.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -178,19 +178,19 @@
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
-    <Compile Include="Search.aspx.cs">
-      <DependentUpon>Search.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Search.aspx.designer.cs">
-      <DependentUpon>Search.aspx</DependentUpon>
-    </Compile>
     <Compile Include="createUser.aspx.cs">
       <DependentUpon>createUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="createUser.aspx.designer.cs">
       <DependentUpon>createUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CoordinatorReport.aspx.cs">
+      <DependentUpon>CoordinatorReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CoordinatorReport.aspx.designer.cs">
+      <DependentUpon>CoordinatorReport.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

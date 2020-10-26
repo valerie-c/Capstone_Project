@@ -1,0 +1,15 @@
+CREATE PROCEDURE dbo.JeremyEzellLab3
+	@UserName AS NVARCHAR(50),
+	@PassWord AS NVARCHAR(300)
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	SELECT  Username, PasswordHash
+	FROM Pass
+	WHERE Username = @UserName
+	AND PasswordHash = @PassWord
+END
+
+
+
