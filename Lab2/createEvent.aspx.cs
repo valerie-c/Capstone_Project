@@ -49,9 +49,7 @@ namespace Lab2
             string Description = HttpUtility.HtmlEncode(txtDescription.Text);
 
             //int TeacherID = Convert.ToInt32(DropDownList1.SelectedValue);
-            //int ShirtInfoID = Convert.ToInt32(DropDownList2.SelectedValue);
 
-            //new Student(0, FirstName, LastName, Age, Notes, LunchTicket, TeacherID, ShirtInfoID);
 
             // Make sure none of the textboxes are blank before commit to the database
             if ((!string.IsNullOrEmpty(txtTitle.Text)) && (!string.IsNullOrEmpty(txtDate.Text)) && (!string.IsNullOrEmpty(txtTime.Text)) && (!string.IsNullOrEmpty(txtLocation.Text)) 
@@ -130,8 +128,7 @@ namespace Lab2
                 "values (@EventTitle,@Date,@Time,@Location,@MiddleSchoolName,@MiddleSchoolNumber,@MiddleSchoolEmail,@RoomNumber,@RoomCapacity,@Description)";
 
             cmd.Parameters.Add("@EventTitle", SqlDbType.NVarChar).Value = EventTitle;
-            cmd.Parameters.Add("@Date", SqlDbType.DateTime).Value = Date;
-            cmd.Parameters.Add("@Time", SqlDbType.DateTime).Value = Time;
+
             cmd.Parameters.Add("@Location", SqlDbType.NVarChar).Value = Location;
             cmd.Parameters.Add("@MiddleSchoolName", SqlDbType.NVarChar).Value = MiddleSchoolName;
             cmd.Parameters.Add("@MiddleSchoolNumber", SqlDbType.NVarChar).Value = MiddleSchoolNumber;
