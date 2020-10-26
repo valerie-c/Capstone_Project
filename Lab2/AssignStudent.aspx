@@ -15,22 +15,14 @@
                     DataTextField ="StudentName"
                     DataValueField ="StudentID"
                     AutoPostBack ="true" Height="27px"></asp:DropDownList>
-                <asp:CheckBox 
-                    ID="CheckBox1" 
-                    runat="server" 
-                    Text ="EventTitle"/>
-                <asp:CheckBox 
-                    ID="CheckBox2" 
-                    runat="server" 
-                    Text ="EventTitle"/>
-                <asp:CheckBox 
-                    ID="CheckBox3" 
-                    runat="server" 
-                    Text ="Trade Shows"/>
-                <asp:CheckBox 
-                    ID="CheckBox4" 
-                    runat="server" 
-                    Text ="Product Launches"/>
+
+                <asp:DropDownList ID="ddlEventList" 
+                    runat="server"
+                    DataSourceID="dtasrcEventList"
+                    DataTextField="EventTitle"
+                    DataValueField = "EventID"
+                    AutoPostBack ="true"></asp:DropDownList>
+              
                 <asp:Button 
                     ID="btnAssignStudent" 
                     runat="server" 
@@ -57,4 +49,9 @@
             ID ="datasrcUserList"
             ConnectionString ="<%$ConnectionStrings:CyberDay %>"
             SelectCommand = "Select  FirstName + ' ' + LastName as StudentName, StudentID  From Student; " />
+
+        <asp:SqlDataSource runat ="server"
+            ID ="dtasrcEventList"
+            ConnectionString ="<%$ConnectionStrings:CyberDay %>"
+            SelectCommand = "Select EventID, EventTitle From Event; " />
 </asp:Content>

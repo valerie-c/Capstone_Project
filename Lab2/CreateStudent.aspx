@@ -59,6 +59,24 @@
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txtLunchTicket" Display ="Dynamic" ForeColor ="Red" SetFocusOnError="true" Text="* This is a required field" ErrorMessage ="* Field cannot be blank!"></asp:RequiredFieldValidator>
                     </asp:TableCell>
                 </asp:TableRow>
+                 <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="parentAttending" runat="server" Text="Parent Attending? "></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RadioButton ID="rbtnYes" runat="server" Text="Yes" Value="1" GroupName="radio" OnCheckedChanged="rbtnYes_CheckedChanged"/>
+                        <asp:RadioButton ID="rbtnNo" runat="server" Text="No" Value="2" GroupName="radio"/>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="parentEmail" runat="server" Text="Parent Email"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="txtparentEmail" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+
              </asp:Table> 
         </div>
         <div>
@@ -71,16 +89,7 @@
                     DataValueField ="TeacherID"
                     AutoPostBack ="true" Height="27px"></asp:DropDownList>
         </div>
-        <div>
-             <asp:Label ID="lblShirt" runat="server" Text="Shirt Information: "></asp:Label>
-             <asp:DropDownList
-                    ID ="DropDownList2"
-                    runat ="server"
-                    DataSourceID ="datasrcShirtList"
-                    DataTextField ="ShirtDetails"
-                    DataValueField ="ShirtInfoID"
-                    AutoPostBack ="true" Height="27px"></asp:DropDownList>
-        </div>
+
         <div>
        
             <asp:Button ID="btnCommit" runat="server" Text="Commit ->" OnClick ="btnCommit_Click" />
@@ -104,9 +113,5 @@
             ID ="datasrcTeacherList"
             ConnectionString ="<%$ConnectionStrings:CyberDay %>"
             SelectCommand ="SELECT TeacherID, FirstName + ' ' + LastName as TeacherName FROM Teacher; " />
-        <asp:SqlDataSource
-            runat ="server"
-            ID ="datasrcShirtList"
-            Connectionstring ="<%$ConnectionStrings:CyberDay %>"
-            SelectCommand ="SELECT ShirtInfoID, ShirtSize + ' ' + ShirtColor as ShirtDetails FROM ShirtInfo; " />
+      
 </asp:Content>

@@ -14,23 +14,15 @@
                     DataSourceID ="datasrcUserList"
                     DataTextField ="VolunteerName"
                     DataValueField ="PersonnelID"
-                    AutoPostBack ="true" Height="27px" OnSelectedIndexChanged ="ddlVolunteerList_SelectedIndexChanged"></asp:DropDownList>
-                <asp:CheckBox 
-                    ID="Cb1" 
-                    runat="server" 
-                    Text ="EventTitle"/>
-                <asp:CheckBox 
-                    ID="Cb2" 
-                    runat="server" 
-                    Text ="EventTitle"/>
-                <asp:CheckBox 
-                    ID="Cb3" 
-                    runat="server" 
-                    Text ="EventTitle"/>
-                <asp:CheckBox 
-                    ID="Cb4" 
-                    runat="server" 
-                    Text ="EventTitle"/>
+                    AutoPostBack ="true" Height="27px"></asp:DropDownList>
+              
+                <asp:DropDownList ID="ddlEventList" 
+                    runat="server"
+                    DataSourceID="dtasrcEventList"
+                    DataTextField="EventTitle"
+                    DataValueField = "EventID"
+                    AutoPostBack ="true"></asp:DropDownList>     
+                
                 <asp:Button 
                     ID="btnAssignVolunteers" 
                     runat="server" 
@@ -55,6 +47,10 @@
         <asp:SqlDataSource runat ="server"
             ID ="datasrcUserList"
             ConnectionString ="<%$ConnectionStrings:CyberDay %>"
-            SelectCommand = "Select  FirstName + ' ' + LastName as VolunteerName, PersonnelID  From EventPersonnel ; " />
+            SelectCommand = "Select FirstName + ' ' + LastName as VolunteerName, PersonnelID From EventPersonnel; " />
          
+        <asp:SqlDataSource runat ="server"
+            ID ="dtasrcEventList"
+            ConnectionString ="<%$ConnectionStrings:CyberDay %>"
+            SelectCommand = "Select EventID, EventTitle From Event; " />
 </asp:Content>

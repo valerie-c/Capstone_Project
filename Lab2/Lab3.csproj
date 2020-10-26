@@ -95,6 +95,7 @@
     <Content Include="PersonInfo.aspx" />
     <Content Include="EventInfo.aspx" />
     <Content Include="createUser.aspx" />
+    <Content Include="WebForm2.aspx" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="LogOut.aspx" />
     <Content Include="Scripts\jquery-3.5.1.js" />
@@ -183,6 +184,13 @@
     </Compile>
     <Compile Include="createUser.aspx.designer.cs">
       <DependentUpon>createUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

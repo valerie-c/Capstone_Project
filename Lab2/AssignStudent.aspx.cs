@@ -28,17 +28,11 @@ namespace Lab2
             DataTable dtForGridTable = new DataTable();
             sqlAdapter.Fill(dtForGridTable);
 
-            CheckBox1.Text = dtForGridTable.Rows[0][0].ToString();
-            CheckBox1.ID = dtForGridTable.Rows[0][1].ToString();
+           
 
-            CheckBox2.Text = dtForGridTable.Rows[1][0].ToString();
-            CheckBox2.ID = dtForGridTable.Rows[1][1].ToString();
+           
 
-            CheckBox3.Text = dtForGridTable.Rows[2][0].ToString();
-            CheckBox3.ID = dtForGridTable.Rows[2][1].ToString();
 
-            CheckBox4.Text = dtForGridTable.Rows[3][0].ToString();
-            CheckBox4.ID = dtForGridTable.Rows[3][1].ToString();
         }
 
         protected void btnShowAll_Click(object sender, EventArgs e)
@@ -64,47 +58,55 @@ namespace Lab2
 
         protected void btnAssignStudent_Click(object sender, EventArgs e)
         {
-
-            if (CheckBox1.Checked == false && CheckBox2.Checked == false && CheckBox3.Checked == false && CheckBox4.Checked == false)
-            {
-                // show messagebox when user did not select event
-                //System.Windows.MessageBox.Show("Please select an event!");
-                Response.Write("<script>alert('Please select an event!');</script>");
-
-                return;
-            }
-            try
-            {
-                if (CheckBox1.Checked == true)
+           
+                if (ddlEventList.SelectedValue == "1")
                 {
-                    Dome(Convert.ToInt32(CheckBox1.ID), Convert.ToInt32(ddlUserList.SelectedValue));
+                    Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlUserList.SelectedValue));
+                }
+                if (ddlEventList.SelectedValue == "2")
+                {
+                    Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlUserList.SelectedValue));
+                }
+                if (ddlEventList.SelectedValue == "3")
+                {
+                    Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlUserList.SelectedValue));
+                }
+                if (ddlEventList.SelectedValue == "4")
+                {
+                    Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlUserList.SelectedValue));
+                }
+                if (ddlEventList.SelectedValue == "5")
+                {
+                    Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlUserList.SelectedValue));
+                }
+                if (ddlEventList.SelectedValue == "6")
+                {
+                    Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlUserList.SelectedValue));
+                }
+                if (ddlEventList.SelectedValue == "7")
+                {
+                    Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlUserList.SelectedValue));
+                }
+                if (ddlEventList.SelectedValue == "8")
+                {
+                    Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlUserList.SelectedValue));
+                }
+                if (ddlEventList.SelectedValue == "9")
+                {
+                    Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlUserList.SelectedValue));
+                }
+                if (ddlEventList.SelectedValue == "10")
+                {
+                    Dome(Convert.ToInt32(ddlEventList.SelectedValue), Convert.ToInt32(ddlUserList.SelectedValue));
                 }
 
-                if (CheckBox2.Checked == true)
-                {
-                    Dome(Convert.ToInt32(CheckBox2.ID), Convert.ToInt32(ddlUserList.SelectedValue));
-                }
 
-                if (CheckBox3.Checked == true)
-                {
-                    Dome(Convert.ToInt32(CheckBox3.ID), Convert.ToInt32(ddlUserList.SelectedValue));
-                }
 
-                if (CheckBox4.Checked == true)
-                {
-                    Dome(Convert.ToInt32(CheckBox4.ID), Convert.ToInt32(ddlUserList.SelectedValue));
-                }
+            //System.Windows.MessageBox.Show("OK! Student assigned to the Events successfully!");
+            Response.Write("<script>alert('OK! Student assigned to the Events successfully!');</script>");
 
-                //System.Windows.MessageBox.Show("OK! Student assigned to the Events successfully!");
-                Response.Write("<script>alert('OK! Student assigned to the Events successfully!');</script>");
-
-            }
-            catch (Exception ex)
-            {
-                //System.Windows.MessageBox.Show("Error! Try again!");
-                Response.Write("<script>alert('Error! Try again!');</script>");
-
-            }
+            
+            
         }
 
         private void Dome(int EventID, int StudentID)
