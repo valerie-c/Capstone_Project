@@ -38,7 +38,8 @@ namespace Lab2
             }
 
             string EventTitle = HttpUtility.HtmlEncode(txtTitle.Text);
-            DateTime Date = Convert.ToDateTime(txtDate.Text);
+            string Date = HttpUtility.HtmlEncode(txtDate.Text); 
+
             DateTime Time = Convert.ToDateTime(txtTime.Text);
             string Location = HttpUtility.HtmlEncode(txtLocation.Text);
             string MiddleSchoolName = HttpUtility.HtmlEncode(txtSchoolName.Text);
@@ -110,7 +111,9 @@ namespace Lab2
             txtDescription.Text = "";
         }
 
-        private void Insert_Event(string EventTitle, DateTime Date, DateTime Time,string Location, string MiddleSchoolName, string MiddleSchoolNumber, string MiddleSchoolEmail, string RoomNumber, string RoomCapacity, string Description)
+        private void Insert_Event(string EventTitle, string Date, DateTime Time,string Location, string MiddleSchoolName, string MiddleSchoolNumber, string MiddleSchoolEmail, string RoomNumber, string RoomCapacity, string Description)
+
+
         {
             // Read the data from the database
             SqlCommand cmd = new SqlCommand();
@@ -128,6 +131,8 @@ namespace Lab2
                 "values (@EventTitle,@Date,@Time,@Location,@MiddleSchoolName,@MiddleSchoolNumber,@MiddleSchoolEmail,@RoomNumber,@RoomCapacity,@Description)";
 
             cmd.Parameters.Add("@EventTitle", SqlDbType.NVarChar).Value = EventTitle;
+            cmd.Parameters.Add("@Date", SqlDbType.NVarChar).Value = Date;
+            cmd.Parameters.Add("@Time", SqlDbType.DateTime).Value = Time;
 
             cmd.Parameters.Add("@Location", SqlDbType.NVarChar).Value = Location;
             cmd.Parameters.Add("@MiddleSchoolName", SqlDbType.NVarChar).Value = MiddleSchoolName;
@@ -145,8 +150,9 @@ namespace Lab2
         private bool IsEventDuplicate(string EventTitle, string Location, string MiddleSchoolName, string RoomNumber)
         {
             // Check if the system has the duplicate student information a
-            String sqlQuery = "SELECT * FROM Event WHERE EventTitle = ' + @EventTitle + ' and Location = ' + @Location + ' " +
-                "and MiddleSchoolName = ' + @MiddleSchoolName + ' and RoomNumber = ' + @RoomNumber + ' ";
+            String sqlQuery = "SELECT * FROM Event WHERE EventTitle = @EventTitle and Location = @Location " +
+                "and MiddleSchoolName = @MiddleSchoolName and RoomNumber = @RoomNumber ";
+
 
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CyberDay"].ConnectionString);
 
@@ -169,5 +175,18 @@ namespace Lab2
             else
                 return false;
         }
+
+        protected void btnLinkView_Click(object sender, EventArgs e)
+        {
+            string fname = FileUpload1.FileName;
+            string fLocation = "Event File/";
+            string pathstring = System.IO.Path.Combine(fLocation, fname);
+            var st = new UploadFile
+            {
+                FileName = TextBox1.Text;
+                FileLocation = pathstring,
+            };
+        }
+
     }
 }

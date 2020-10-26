@@ -40,7 +40,7 @@
                     <asp:TableCell>
                         <asp:TextBox ID="txtTime" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txtTime" Display ="Dynamic" ForeColor ="Red" SetFocusOnError="true" Text="* This is a required field" ErrorMessage ="* Field cannot be blank!" ></asp:RequiredFieldValidator>
-<%--                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate ="txtTime" Operator="DataTypeCheck" Type="Date" ForeColor="Red" SetFocusOnError="true" Text="* Entry must be in Time format" ErrorMessage ="* Data must be in Time format!" ></asp:CompareValidator>--%>
+
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
@@ -106,6 +106,24 @@
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDescription" Display ="Dynamic" ForeColor ="Red" SetFocusOnError="true" Text="* This is a required field" ErrorMessage ="* Field cannot be blank!"></asp:RequiredFieldValidator>
                     </asp:TableCell>
                 </asp:TableRow>
+
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblUpload" runat="server" Text="Select File: "></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:FileUpload ID="FileUpload1" runat="server" />
+                    </asp:TableCell>    
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblFileName" runat="server" Text="File Name: "></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+
              </asp:Table> 
         </div>
 
